@@ -43,8 +43,7 @@ void setup()
   M5.Lcd.print("Servo2 richard");
 
   // dacWrite(25, 0);
-  // M5.Lcd.setTextSize(2); // Set the font size to 2.
-  // M5.Lcd.print("the value of ANGLE: ");
+  
 }
 
 void setServoPulse(uint8_t n, double pulse)
@@ -72,38 +71,10 @@ void servo_angle_write(uint8_t n, int Angle)
 
 void loop()
 {
-  // for (int i = 0; i < 16; i++)
-  // {
-  //   // setServoPulse(i, 0.5);
-  //   // servo_angle_write()
-  // }
-  // delay(500);
-  // for (int i = 0; i < 16; i++)
-  // {
-  //   // setServoPulse(i, 2.5);
-  // }
-  // servo_angle_write(0, 50);
-  // delay(500);
-  // servo_angle_write(0, 20);
-  // delay(500);
-
   cur_sensorValue = analogRead(sensorPin); // read the value from the sensor.
+  const int normalVal = map(cur_sensorValue, 0, 4096, 0, 180);
 
-  int normalVal = map(cur_sensorValue, 0, 4096, 0, 180);
-
-  // Serial.println(normalVal);
-  // M5.Lcd.setCursor(0, 25);
-  // M5.Lcd.fillRect(0, 25, 100, 25, BLACK);
-  // M5.Lcd.print(cur_sensorValue);
   servo_angle_write(8, normalVal);
   servo_angle_write(15, normalVal);
-  // setServoPulse(0, cur_sensorValue);
   delay(50);
-  // M5.Lcd.setCursor(0, 25); // Place the cursor at (0,25).  
-  // if (abs(cur_sensorValue - last_sensorValue) > 10)
-  // { // If the difference is more than 10.  
-  //   M5.Lcd.fillRect(0, 25, 100, 25, BLACK);
-  //   M5.Lcd.print(cur_sensorValue);
-  //   last_sensorValue = cur_sensorValue;
-  // }
 }
