@@ -40,7 +40,7 @@ void setup()
 
   M5.Lcd.setCursor(220, 0, 4);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
-  M5.Lcd.print("Servo2 richard");
+  M5.Lcd.print("Servo3 richard");
 
   // dacWrite(25, 0);
 }
